@@ -1,7 +1,9 @@
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
+
 
 class Task(models.Model):
     title = models.CharField(max_length=100)
@@ -9,6 +11,7 @@ class Task(models.Model):
     posted_at = models.DateTimeField(default=timezone.now)
     due_at = models.DateTimeField(null=True, blank=True)
 
+    
     def is_overdue(self, dt):
         if self.due_at is None:
             return False
