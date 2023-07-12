@@ -4,6 +4,8 @@ from datetime import datetime
 from todo.models import Task
 
 # Create your tests here.
+
+
 class SampleTestCast(TestCase):
     def test_sample1(self):
         self.assertEqual(1 + 2, 3)
@@ -19,7 +21,6 @@ class TaskModelTestCase(TestCase):
         due = timezone.make_aware(datetime(2023, 6, 30, 23, 59, 59))
         task = Task(title="task1", due_at=due)
         task.save()
-
         task = Task.objects.get(pk=task.pk)
         self.assertEqual(task.title, 'task1')
         self.assertFalse(task.completed)
